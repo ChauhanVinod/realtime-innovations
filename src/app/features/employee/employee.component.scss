@@ -1,0 +1,470 @@
+@import 'src/app/shared/styles/_variables.scss';
+
+.employee-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  height: 100dvh;
+  background: #F2F2F2;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  @media (min-width: 1024px) {
+    max-width: 600px;
+  }
+
+  &.form-active {
+    background: white;
+
+    .content {
+      padding: 25px 25px 0 25px;
+    }
+  }
+
+  .header {
+    background-color: $primary-color;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    flex-shrink: 0;
+    z-index: 1;
+
+    .header-title {
+      color: #fff;
+      font: 500 16px/21px 'Roboto', sans-serif;
+      margin: 0;
+    }
+  }
+
+  .content {
+    flex: 1;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    background: inherit;
+
+
+    >div {
+      height: 100%;
+      position: relative;
+    }
+
+    .empty-state {
+      height: 80dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      .empty-icon {
+        // width: 170px;
+        // height: 170px;
+        // margin-bottom: 20px;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      p {
+        color: #323238;
+        font: 500 14px 'Roboto', sans-serif;
+      }
+    }
+
+    /** Employee List CSS Starts **/
+    .employee-grid {
+      height: calc(100dvh - 150px);
+      overflow-y: auto;
+
+      .employee-header {
+        background: #F2F2F2;
+        padding: 16px 24px;
+        color: $primary-color;
+      }
+
+      /** Employee cards swipe CSS Starts **/
+      .swipe-wrapper {
+        position: relative;
+        overflow: hidden;
+
+        .action-buttons {
+          position: absolute;
+          right: 0;
+          top: 1px;
+          bottom: 2px;
+          display: flex;
+          gap: 2px;
+          background: #fff;
+          z-index: 1;
+
+          button {
+            background-color: red;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            min-width: 70px;
+
+
+            &.edit-btn {
+              background-color: orange;
+            }
+          }
+        }
+      }
+
+      .employee-card {
+        background: white;
+        padding: 16px 24px;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $border-color;
+
+        .employee-info {
+          h3 {
+            margin: 0;
+            font: 500 16px 'Roboto', sans-serif;
+            color: #1A1A1A;
+          }
+
+          p {
+            margin: 4px 0 0;
+            font: 400 14px 'Roboto', sans-serif;
+            color: #666;
+          }
+
+          small {
+            font: 400 12px 'Roboto', sans-serif;
+            color: $text-color-light;
+          }
+        }
+
+        button[mat-icon-button] {
+          mat-icon {
+            color: #666;
+            font-size: 20px;
+            width: 20px;
+            height: 20px;
+          }
+
+          &:hover mat-icon {
+            color: #ff4444;
+          }
+        }
+      }
+    }
+    /** Employee Grid CSS Ends **/
+
+    .employee-footer {
+      padding: 0 24px;
+      text-align: left;
+      font-size: 15px;
+      color: #949C9E;
+    }
+
+    // Plus Icon
+    .fab-button {
+      position: absolute;
+      bottom: 25px;
+      right: 25px;
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      background: $primary-color;
+      color: white;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      span {
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+
+    /** Employee Form CSS Starts **/
+    .add-form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .form-content {
+        // padding-top: 24px;
+        height: calc(100dvh - 100px);
+
+        .form-group {
+          margin-bottom: 16px;
+          position: relative;
+
+          input,
+          select {
+            width: 100%;
+            padding: 12px 12px 12px 40px;
+            border: 1px solid $border-color;
+            border-radius: 4px;
+            font: 400 14px 'Roboto', sans-serif;
+            background: white;
+            color: $text-color;
+            box-sizing: border-box;
+
+            &:focus {
+              outline: none;
+              border-color: $primary-color;
+              box-shadow: 0 0 0 2px rgba(29, 161, 242, 0.2);
+            }
+
+            &::placeholder {
+              color: $text-color-light;
+            }
+
+          }
+
+          input.invalid {
+            border: 2px solid #e53935;
+            outline: none;
+          }
+          
+          input.invalid:focus {
+            border-color: #d32f2f;
+            box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.2);
+          }
+
+          .input-icon {
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+          }
+
+
+          &.select-input {
+            select {
+              display: none;
+
+              &:invalid {
+                color: $text-color-light;
+              }
+
+              option[value=""][disabled] {
+                display: none;
+              }
+
+              option {
+                color: $text-color;
+              }
+            }
+
+            .select-trigger {
+              padding: 12px 12px 12px 40px;
+              border: 1px solid $border-color;
+              border-radius: 4px;
+              font: 400 14px 'Roboto', sans-serif;
+              background: white;
+              color: $text-color;
+              cursor: pointer;
+              text-align: left;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              height: 16px;
+
+              &[data-empty="true"]::before {
+                content: 'Select Role';
+                color: $text-color-light;
+                position: absolute;
+                left: 40px; // Match icon position
+                top: 50%;
+                transform: translateY(-50%);
+                pointer-events: none; // Allow clicks through placeholder
+              }
+
+              // Match focus state
+              &:active,
+              &.active {
+                border-color: $primary-color;
+                box-shadow: 0 0 0 2px rgba(29, 161, 242, 0.2);
+              }
+            }
+
+            .input-icon {
+              position: absolute;
+              left: 12px;
+              top: 50%;
+              transform: translateY(-50%);
+              z-index: 1;
+            }
+
+            .select-caret {
+              position: absolute;
+              top: 50%;
+              right: 12px;
+              transform: translateY(-50%);
+              width: 12px;
+              height: 12px;
+              pointer-events: none;
+            }
+
+            app-custom-select {
+              position: absolute;
+              top: calc(100% + 8px);
+              left: 0;
+              right: 0;
+              z-index: 1000;
+            }
+          }
+
+          &.date-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            flex-wrap: nowrap;
+
+            .date-wrapper {
+              position: relative;
+              cursor: pointer;
+              display: contents;
+              justify-content: space-evenly;
+
+              .input-wrapper {
+                position: relative;
+                // Adjusted to fit the icon
+                left: 6px;
+                margin: -6px;
+
+                .date-input {
+                  width: 100%;
+                  padding: 10px 12px 10px 40px; // left padding for the icon
+                  font-size: 14px;
+                  line-height: 20px;
+                  border: 1px solid #ccc;
+                  border-radius: 4px;
+                  height: 40px;
+                  box-sizing: border-box;
+                }
+
+                .input-icon {
+                  position: absolute;
+                  left: 12px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  width: 20px;
+                  height: 20px;
+                  pointer-events: none;
+                }
+              }
+
+              .date-display {
+                display: flex;
+                width: 100%;
+                padding: 12px 8px 12px 40px;
+                border: 1px solid $border-color;
+                border-radius: 4px;
+                font: 400 14px 'Roboto', sans-serif;
+                background: white;
+                color: $text-color;
+
+                &[data-empty="true"]::before {
+                  content: attr(data-placeholder);
+                  color: $text-color-light;
+                  position: absolute;
+                  left: 40px;
+                  pointer-events: none;
+                }
+              }
+            }
+
+            .arrow-icon {
+              font-size: 18px;
+              font-weight: bolder;
+              color: $primary-color;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex: 0 0 16px; // Narrow width, no growth
+              height: 100%;
+            }
+
+            // Only stack when screen < 300px
+            @media (max-width: 300px) {
+              flex-direction: column;
+              align-items: stretch;
+
+              .arrow-icon {
+                transform: rotate(90deg);
+                padding: 8px 0;
+              }
+            }
+          }
+        }
+      }
+
+      .form-actions {
+        margin: 0 -24px -24px;
+        padding: 16px 24px;
+        border-top: 1px solid #EEE;
+        background: white;
+        position: sticky;
+        bottom: 0;
+        display: flex;
+        gap: 16px;
+        justify-content: flex-end;
+
+        button {
+          padding: 8px 24px;
+          border-radius: 4px;
+          font: 500 14px 'Roboto', sans-serif;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &.cancel-btn {
+            background: $secondary-color;
+            color: $primary-color;
+            border: 1px solid $secondary-color;
+
+            &:hover {
+              background: #F5F5F5;
+            }
+          }
+
+          &.save-btn {
+            background: $primary-color;
+            color: white;
+            border: none;
+
+            &:hover {
+              background: #1991DB;
+            }
+
+            &:disabled {
+              background: #cccccc;
+              cursor: not-allowed;
+            }
+          }
+        }
+      }
+    }
+    /** Employee Form CSS Ends **/
+  }
+}

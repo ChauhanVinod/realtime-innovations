@@ -1,0 +1,36 @@
+.custom-select-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 998;
+}
+
+.custom-select-bottom-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  padding: 12px 0;
+  z-index: 999;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+
+  .custom-select-option {
+    padding: 16px;
+    text-align: center;
+    font: 500 16px 'Roboto', sans-serif;
+    border-top: 1px solid #eee;
+    cursor: pointer;
+    color: #333;
+
+    &:first-child {
+      border-top: none;
+    }
+
+    &:hover {
+      background: #f8f8f8;
+    }
+  }
+}

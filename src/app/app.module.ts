@@ -1,16 +1,23 @@
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmployeesModule } from './features/employee/employees.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
-  imports: [
+  imports: [  
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    EmployeesModule,
+    BrowserAnimationsModule,
+    HammerModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

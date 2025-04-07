@@ -1,0 +1,189 @@
+@import 'src/app/shared/styles/_variables.scss';
+
+.custom-datepicker {
+  width: 320px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  z-index: 1000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .datepicker-header {
+    margin-bottom: 16px;
+
+    .quick-selection-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .quick-selection-row {
+        display: flex;
+        gap: 8px;
+        width: 100%;
+      }
+    }
+
+    .quick-select-btn {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid $secondary-color;
+      border-radius: 4px;
+      background: $secondary-color;
+      font: 400 14px 'Roboto', sans-serif;
+      color: $primary-text-color;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: darken($secondary-color, 3%);
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 0 8px;
+
+    button {
+      background: none;
+      border: none;
+      padding: 4px 8px;
+      cursor: pointer;
+      font-size: 16px;
+      color: $text-color-medium;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+    h4 {
+      margin: 0;
+      font: 500 16px 'Roboto', sans-serif;
+      color: $text-color;
+    }
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 16px;
+
+    .day-header {
+      text-align: center;
+      padding: 8px;
+      font: 500 14px 'Roboto', sans-serif;
+      color: $text-color-medium;
+    }
+
+    .day {
+      text-align: center;
+      padding: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font: 400 14px 'Roboto', sans-serif;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #f0f0f0;
+      }
+
+      &.current-month {
+        color: $text-color;
+      }
+
+      &:not(.current-month) {
+        color: $text-color-light;
+        opacity: 0.7;
+      }
+
+      &.selected {
+        background: $primary-color;
+        color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .datepicker-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .selected-date-display {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font: 500 14px 'Roboto', sans-serif;
+      color: $text-color;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+
+      button {
+        padding: 8px 16px;
+        border-radius: 4px;
+        font: 500 14px 'Roboto', sans-serif;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &.cancel-btn {
+          background: $secondary-color;
+          color: $primary-color;
+          border: 1px solid $secondary-color;
+
+          &:hover {
+            background: darken($secondary-color, 3%);
+          }
+        }
+
+        &.save-btn {
+          background: $primary-color;
+          color: white;
+          border: none;
+
+          &:hover {
+            background: darken($primary-color, 5%);
+          }
+        }
+
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+    }
+  }
+}
+
+.datepicker-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  animation: fadeIn 0.2s ease-out;
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}

@@ -1,0 +1,46 @@
+<div class="datepicker-backdrop"></div>
+<div class="custom-datepicker">
+    <div class="datepicker-header">
+        <div class="quick-selection-group">
+            <div class="quick-selection-row">
+                <button class="quick-select-btn" (click)="selectToday()">Today</button>
+                <button class="quick-select-btn" (click)="selectNextMonday()">Next Monday</button>
+            </div>
+            <div class="quick-selection-row">
+                <button class="quick-select-btn" (click)="selectNextTuesday()">Next Tuesday</button>
+                <button class="quick-select-btn" (click)="selectAfterOneWeek()">After 1 Week</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="calendar">
+        <div class="calendar-header">
+            <button type="button" (click)="previousMonth()">◀</button>
+            <h4>{{ currentMonth | date:'MMMM y' }}</h4>
+            <button type="button" (click)="nextMonth()">▶</button>
+        </div>
+
+        <div class="calendar-grid">
+            <div *ngFor="let day of dayHeaders" class="day-header">{{ day }}</div>
+            <div *ngFor="let day of calendarDays" class="day" [class.selected]="isSelected(day)"
+                [class.current-month]="day.isCurrentMonth" (click)="selectDate(day)">
+                {{ day.date.getDate() }}
+            </div>
+        </div>
+    </div>
+
+    <div class="datepicker-actions">
+        <div class="selected-date-display">
+            <img src="assets/employee_date.svg" alt="Calendar icon">
+            {{ selectedDate | date:'d MMM y' }}
+        </div>
+        <div class="action-buttons">
+            <button type="button" class="cancel-btn" (click)="cancelSelection()">
+                Cancel
+            </button>
+            <button type="button" class="save-btn" (click)="saveSelection()">
+                Save
+            </button>
+        </div>
+    </div>
+</div>

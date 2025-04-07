@@ -1,27 +1,40 @@
-# RealtimeInnovations
+# 🧑‍💼 Employee Management App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+A responsive Angular web application to manage employee records with full **CRUD** functionality, local **IndexedDB** persistence, and a custom-built **mobile-style date picker**. Designed with a mobile-first approach based on Figma specs and fully adapted for **tablet** and **desktop** views.
 
-## Development server
+## 🔗 Live Demo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+👉 [View Live App](https://your-project-id.web.app)  
+🔒 Password for Figma reference: `ninjaCoder`
 
-## Code scaffolding
+## 📁 Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- ✅ Add, Edit, and Delete employee records
+- ✅ Responsive UI for **mobile**, **tablet**, and **desktop**
+- ✅ Offline data persistence using **IndexedDB**
+- ✅ Custom-designed **date picker** based on Figma
+- ✅ Built with **Angular v16**, **Signals**, and **SCSS**
+- ✅ Swipe gestures for mobile (iOS-style UI behavior)
 
-## Build
+## 🛠️ Tech Stack
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- [Angular 16]
+- [Angular Signals]
+- [IndexedDB]
+- [SCSS]
+- [Firebase Hosting]
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Prerequisites
 
-## Running end-to-end tests
+- Node.js (v16.14.0 recommended)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 📦 Setup & Run Locally
+- npm install
+- ng serve
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Installation
+- git clone https://github.com/ChauhanVinod/EmployeeManagement.app.git
+- cd realtime-innovations
+- npm install
