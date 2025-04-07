@@ -33,6 +33,6 @@ A responsive Angular web application to manage employee records with full **CRUD
 
 
 ### Installation
-- git clone https://github.com/ChauhanVinod/EmployeeManagement.app.git
+- git clone https://github.com/ChauhanVinod/realtime-innovations.git
 - cd realtime-innovations
 - npm install
