@@ -4,8 +4,6 @@ A responsive Angular web application to manage employee records with full **CRUD
 
 ## 🔗 Live Demo
 
-👉 [View Live App](https://your-project-id.web.app)  
-🔒 Password for Figma reference: `ninjaCoder`
 
 ## 📁 Features
 
