@@ -3,7 +3,7 @@
 A responsive Angular web application to manage employee records with full **CRUD** functionality, local **IndexedDB** persistence, and a custom-built **mobile-style date picker**. Designed with a mobile-first approach based on Figma specs and fully adapted for **tablet** and **desktop** views.
 
 ## 🔗 Live Demo
-
+👉 [View Live App](https://rti-employee-management.netlify.app/)
 
 ## 📁 Features
 
